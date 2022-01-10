@@ -5,7 +5,7 @@ import Data from "./Data/crewmembers.json";
 export default function CrewMembers() {
   return (
     <div className="container mt-5">
-      <div className="posts  scrollbar scrollbar-success  ">
+      <div className="posts  scrollbar scrollbar-success p-5 ">
         {Data.map((post) => {
           return (
             <div
@@ -28,7 +28,7 @@ export default function CrewMembers() {
                   <input
                     style={{ backgroundColor: "green" }}
                     type="checkbox"
-                    class="checkMark bg-success"
+                    class="checkMark"
                   />
                 </p>
               </div>

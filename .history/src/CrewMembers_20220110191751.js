@@ -28,7 +28,7 @@ export default function CrewMembers() {
                   <input
                     style={{ backgroundColor: "green" }}
                     type="checkbox"
-                    class="checkMark bg-success"
+                    class="checkMark"
                   />
                 </p>
               </div>

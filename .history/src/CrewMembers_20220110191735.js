@@ -5,12 +5,12 @@ import Data from "./Data/crewmembers.json";
 export default function CrewMembers() {
   return (
     <div className="container mt-5">
-      <div className="posts  scrollbar scrollbar-success  ">
+      <div className="posts  scrollbar scrollbar-success p-5 ">
         {Data.map((post) => {
           return (
             <div
               key={post.id}
-              className="decoration force-overflow overflow-auto m-3 "
+              className="decoration force-overflow overflow-auto  "
             >
               <div className="d-flex flex-row justify-content-between">
                 <h4 className="p-4">{post.Name} </h4>
@@ -28,7 +28,7 @@ export default function CrewMembers() {
                   <input
                     style={{ backgroundColor: "green" }}
                     type="checkbox"
-                    class="checkMark bg-success"
+                    class="checkMark"
                   />
                 </p>
               </div>
