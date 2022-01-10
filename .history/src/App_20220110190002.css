@@ -111,20 +111,35 @@ p {
 }
 /* Check box */
 .checkMark {
-  margin: 20px;
-  height: 35px;
-  width: 35px;
-  background: green;
-  cursor: pointer;
+  margin-top: 5px;
+  height: 25px;
+  width: 25px;
+  background-color: green;
+}
+.checkMark:after {
+  content: "";
+  position: absolute;
+  display: none;
 }
 
+/* Style the checkmark/indicator */
+.checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid rgb(48, 78, 48);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 /* scroll bar*/
 .scrollbar {
   position: relative;
   overflow-y: scroll;
   height: 600px;
   width: 60%;
-  cursor: pointer;
 }
 ::-webkit-scrollbar {
   width: 30px;
@@ -146,5 +161,5 @@ p {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(48, 78, 48);
+  background: green;
 }

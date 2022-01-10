@@ -92,7 +92,11 @@
   color: green;
   border: 1px solid green;
 }
-
+.scrollbar {
+  position: relative;
+  overflow-y: scroll;
+  height: 500px;
+}
 .force-overflow {
   background: green;
 }
@@ -108,23 +112,6 @@ p {
 }
 .form-check-input {
   background: rgb(22, 150, 22);
-}
-/* Check box */
-.checkMark {
-  margin: 20px;
-  height: 35px;
-  width: 35px;
-  background: green;
-  cursor: pointer;
-}
-
-/* scroll bar*/
-.scrollbar {
-  position: relative;
-  overflow-y: scroll;
-  height: 600px;
-  width: 60%;
-  cursor: pointer;
 }
 ::-webkit-scrollbar {
   width: 30px;
@@ -146,5 +133,5 @@ p {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(48, 78, 48);
+  background: green;
 }

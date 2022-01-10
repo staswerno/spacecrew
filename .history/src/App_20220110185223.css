@@ -111,20 +111,18 @@ p {
 }
 /* Check box */
 .checkMark {
-  margin: 20px;
-  height: 35px;
-  width: 35px;
-  background: green;
-  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  background: rgb(48, 78, 48);
+  align-items: center;
+  padding: 10px;
 }
-
 /* scroll bar*/
 .scrollbar {
   position: relative;
   overflow-y: scroll;
   height: 600px;
   width: 60%;
-  cursor: pointer;
 }
 ::-webkit-scrollbar {
   width: 30px;
@@ -146,5 +144,5 @@ p {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(48, 78, 48);
+  background: green;
 }

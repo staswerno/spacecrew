@@ -4,8 +4,9 @@ import CrewMembers from "./CrewMembers";
 
 function Select() {
   return (
-    <div className="container mt-5">
-      <h5>Select 10 Crew members for your planet</h5>
+    <div>
+      this is where we select the crew and planet create 2 js files for the
+      planet and crew ?
       <div className="d-flex flex-lg-row">
         <div>
           <h1> jai's planet carousel </h1>

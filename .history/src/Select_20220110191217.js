@@ -4,7 +4,7 @@ import CrewMembers from "./CrewMembers";
 
 function Select() {
   return (
-    <div className="container mt-5">
+    <div>
       <h5>Select 10 Crew members for your planet</h5>
       <div className="d-flex flex-lg-row">
         <div>
