@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 
 function Mission() {
   return (
-    <Container className=" mission ">
+    <Container className=" mission justify-content-center">
       <Row className="p-2 mission-heading mt-5 justify-content-center">
         <h1> SPACECREW ASSEMBLE !! </h1>
       </Row>
