@@ -10,8 +10,9 @@
   padding: 0;
   margin: 0;
   /* box-sizing: border-box; */
+  background-color: black;
 }
-.logoContainer button {
+.logoContainer .logoBtn {
   height: 300px;
   width: 400px;
   position: absolute;
@@ -27,7 +28,7 @@
   border: black;
 }
 
-.logoContainer button:before {
+.logoContainer .logoBtn:before {
   content: "";
   background-image: conic-gradient(green 20deg, transparent 120deg);
   height: 150%;
@@ -36,13 +37,14 @@
   left: -25%;
   top: -25%;
   animation: rotate 3s infinite linear;
+  background-color: black;
 }
 @keyframes rotate {
   100% {
     transform: rotate(-360deg);
   }
 }
-.logoContainer button:after {
+.logoContainer .logoBtn:after {
   content: "SPACECREW";
   height: 94%;
   width: 94%;
@@ -56,6 +58,9 @@
   place-items: center;
   font-size: 40px;
   letter-spacing: 6px;
+}
+.logoBtn:hover {
+  background-color: black !important;
 }
 
 .mission {
@@ -73,21 +78,23 @@
 .mission-subtext {
   font-size: 1.5em;
   text-align: center;
-  width: 40%;
+  align-self: center;
+  width: 70%;
 }
 
 .startBtn {
-  background-color: green;
+  background-color: green !important;
   color: black;
-  border: none;
-  font-size: 1.5em;
+  border: none !important;
+  font-size: 1.5em !important;
 }
 
 .startBtn:hover {
-  background-color: black;
-  color: green;
+  background-color: black !important;
+  color: green !important;
   border: none;
 }
+
 .decoration {
   color: green;
   border: 1px solid green;
@@ -96,6 +103,7 @@
 .force-overflow {
   background: green;
 }
+
 .force-overflow div,
 h4,
 p {
@@ -146,4 +154,16 @@ p {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(48, 78, 48);
+}
+
+.selectContainer {
+  color: green;
+  text-align: center;
+  align-self: center;
+}
+
+.planetCaro {
+  text-align: center;
+  align-self: center;
+  font-family: "Space Mono", monospace;
 }

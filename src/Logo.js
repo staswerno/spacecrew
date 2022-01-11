@@ -8,7 +8,7 @@ function Logo() {
     return (
         <Container className="logoContainer">
             <NavLink to="/mission">
-                <Button></Button>
+                <Button className="logoBtn"></Button>
             </NavLink>
         </Container>
         
