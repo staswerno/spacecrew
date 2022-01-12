@@ -1,40 +1,56 @@
-import React from "react";
-import Data from "./Data/crewmembers.json";
+import React, { useEffect, useState } from "react";
 
 export default function CrewMembers() {
+  const [data, getData] = useState([]);
+
+  const API = "https://space-crew.herokuapp.com/crewmembers";
+
+  const fetchData = () => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        getData(res);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container mt-5">
       <div className="posts  scrollbar scrollbar-success  ">
-        {Data.map((post) => {
+        {data.map((post) => {
           return (
             <div
               key={post.id}
               className="decoration force-overflow overflow-auto m-3 "
             >
               <div className="d-flex text-center flex-row flex-wrap justify-content-between">
-                <h4 className="p-4 fw-bold ">{post.Name} </h4>
-                <p className="p-3">
+                <h4 className="p-3 fw-bold ">{post.Name} </h4>
+                <p className="p-1">
                   Origin <br /> {post.Origin}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Leadership <br /> {post.Leadership}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Mining <br /> {post.Mining}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Farming <br /> {post.Farming}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Building <br /> {post.Building}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Combat <br /> {post.Combat}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Science <br /> {post.Science}{" "}
                 </p>
-                <p className="p-3">
+                <p className="p-1">
                   Fertility <br /> {post.Fertility}{" "}
                 </p>
                 <p>
@@ -50,6 +66,7 @@ export default function CrewMembers() {
           );
         })}
       </div>
+      <br />
     </div>
   );
 }

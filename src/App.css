@@ -126,7 +126,7 @@ p {
 .scrollbar {
   position: relative;
   overflow-y: scroll;
-  height: 600px;
+  height: 500px;
   cursor: pointer;
 }
 ::-webkit-scrollbar {
@@ -162,4 +162,11 @@ p {
   text-align: center;
   align-self: center;
   font-family: "Space Mono", monospace;
+}
+
+.butSelect {
+  background: green;
+  color: black;
+  border-radius: 5px;
+  padding: 8px;
 }

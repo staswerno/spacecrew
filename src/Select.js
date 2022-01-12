@@ -8,36 +8,38 @@ import Col from "react-bootstrap/Col";
 
 function Select() {
   return (
-    <Container className = "selectContainer">
-      <Row className = "m-3 ">
+    <Container className="selectContainer">
+      <Row className="m-3 ">
         <h3>Select 10 Crew members and a Planet to colonize</h3>
       </Row>
-      <Row >
-        <Col> 
-          <div> <Planets /> </div>  
+      <Row>
+        <Col>
+          <div>
+            {" "}
+            <Planets />{" "}
+          </div>
         </Col>
-        <Col> 
-        <div><CrewMembers /> </div>
+        <Col>
+          <div>
+            <CrewMembers />{" "}
+          </div>
         </Col>
-      </Row> 
+      </Row>
+      <br />
     </Container>
-  
   );
 }
 
 export default Select;
 
-
-
-
-   // <div className="container mt-5">
-    //   <h5>Select 10 Crew members for your planet</h5>
-    //   <div className="d-flex flex-lg-row">
-    //     <div>
-    //       <h1> jai's planet carousel </h1>
-    //     </div>
-    //     <div>
-    //       <CrewMembers />
-    //     </div>
-    //   </div>
-    // </div>
+// <div className="container mt-5">
+//   <h5>Select 10 Crew members for your planet</h5>
+//   <div className="d-flex flex-lg-row">
+//     <div>
+//       <h1> jai's planet carousel </h1>
+//     </div>
+//     <div>
+//       <CrewMembers />
+//     </div>
+//   </div>
+// </div>
