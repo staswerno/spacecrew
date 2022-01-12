@@ -126,7 +126,7 @@ p {
 .scrollbar {
   position: relative;
   overflow-y: scroll;
-  height: 600px;
+  height: 500px;
   cursor: pointer;
 }
 ::-webkit-scrollbar {
