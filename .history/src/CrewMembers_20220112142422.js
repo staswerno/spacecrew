@@ -11,7 +11,7 @@ export default function CrewMembers() {
               key={post.id}
               className="decoration force-overflow overflow-auto m-3 "
             >
-              <div className="d-flex text-center flex-row flex-wrap justify-content-between">
+              <div className="d-flex flex-row flex-wrap justify-content-between">
                 <h4 className="p-4 fw-bold ">{post.Name} </h4>
                 <p className="p-3">
                   Origin <br /> {post.Origin}{" "}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 import Data from "./Data/crewmembers.json";
 
 export default function CrewMembers() {
@@ -11,8 +12,8 @@ export default function CrewMembers() {
               key={post.id}
               className="decoration force-overflow overflow-auto m-3 "
             >
-              <div className="d-flex text-center flex-row flex-wrap justify-content-between">
-                <h4 className="p-4 fw-bold ">{post.Name} </h4>
+              <div className="d-flex flex-row justify-content-between">
+                <h4 className="p-4">{post.Name} </h4>
                 <p className="p-3">
                   Origin <br /> {post.Origin}{" "}
                 </p>
@@ -32,10 +33,10 @@ export default function CrewMembers() {
                   Combat <br /> {post.Combat}{" "}
                 </p>
                 <p className="p-3">
-                  Science <br /> {post.Science}{" "}
+                  Combat <br /> {post.Combat}{" "}
                 </p>
                 <p className="p-3">
-                  Fertility <br /> {post.Fertility}{" "}
+                  Combat <br /> {post.Combat}{" "}
                 </p>
                 <p>
                   {" "}
