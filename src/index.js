@@ -12,6 +12,7 @@ ReactDOM.render(
         <Route path="/" element={ <App /> } />
         <Route path="mission" element={ <Mission /> } />
         <Route path="select" element={ <Select /> } />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
