@@ -46,57 +46,58 @@ function Planets() {
       });
   }, []);
 
-  console.log(name);
-  console.log(select);
-  return (
-    <div>
-      <div
-        className=" selection "
-        style={{ visibility: show ? "visible" : "hidden" }}
-      >
-        <h4>You selected Planet {select.Planet}</h4>
-      </div>
-      <div className="planetsCaro mt-3">
-        {isLoading ? (
-          <div>is loading...</div>
-        ) : (
-          <Carousel>
-            {planets.map((planet, index) => (
-              <Carousel.Item key={index}>
-                <Row style={{ cursor: "pointer" }}>
-                  <img
-                    className="testimonialImages d-block w-100"
-                    src={name[planet.Planet]}
-                    alt="Bairkan"
-                    onClick={() => {
-                      setSelect(planet);
-                      setShow(true);
-                    }}
-                  />
-                </Row>
-                <Row className="m-5  justify-content-md-center planetInfo">
-                  <h4>Planet {planet.Planet}</h4>
-                  <br />
-                  <Row>
-                    <h6>Solar System : {planet.SolarSystem}</h6>
-                    <h6>Location X : {planet.LocationX}</h6>
-                    <h6>Location Y: {planet.LocationY}</h6>
-                    <h6>Location Z: {planet.LocationZ}</h6>
-                    <h6>Vegetation: {planet.Vegetation}</h6>
-                    <h6>Resources: {planet.Resources}</h6>
-                    <h6>Alien-Life: {planet.AlienLife}</h6>
-                    <h6>Climatehostility: {planet.ClimateHostility}</h6>
-                    <h6>Suitability: {planet.Suitability}</h6>
-                    <h6>SuitabilityControl: {planet.SuitabilityControl}</h6>
-                  </Row>
-                </Row>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        )}
-      </div>
-    </div>
-  );
+    console.log(name);
+     console.log(select)  
+    return (
+        <div>
+        <div className=" selection " style =  {{ visibility: show ? "visible" : "hidden" }}> 
+            <h4>You selected Planet {select.Planet}</h4> 
+        </div>
+            <div className="planetsCaro mt-3">
+                {isLoading ? (
+                    <div>is loading...</div>
+                ) : (
+                    <Carousel interval={null}
+                    >
+                        {planets.map( (planet, index) => (
+                            <Carousel.Item key={index}>
+                                <Row  style = {{cursor: 'pointer'}} >
+                                    <img
+                                    className="testimonialImages d-block w-100"
+                                    src={name[planet.Planet]}
+                                    alt='Bairkan'
+                                    onClick={ () => {
+                                        setSelect(planet) 
+                                        setShow(true);
+                                    }}
+                                    />
+                                </Row>
+                                <Row className = "m-5  justify-content-md-center planetInfo">
+                                    <h4>Planet {planet.Planet}</h4>
+                                    <br />
+                                    <Row >
+                                        
+                                            <h6>Solar System : {planet.SolarSystem}</h6>
+                                            <h6>Location X : {planet.LocationX}</h6>
+                                            <h6>Location Y: {planet.LocationY}</h6>
+                                            <h6>Location Z: {planet.LocationZ}</h6>
+                                            <h6>Vegetation: {planet.Vegetation}</h6>
+                                            <h6>Resources: {planet.Resources}</h6>
+                                            <h6>Alien-Life: {planet.AlienLife}</h6>
+                                            <h6>Climatehostility: {planet.ClimateHostility}</h6>
+                                            <h6>Suitability: {planet.Suitability}</h6>
+                                            <h6>SuitabilityControl: {planet.SuitabilityControl}</h6>
+                                        
+                                    </Row>
+                                </Row>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                )}
+            
+        </div>
+        </div>
+    )
 }
 
 export default Planets;

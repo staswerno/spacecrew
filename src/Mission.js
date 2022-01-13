@@ -10,7 +10,7 @@ function Mission() {
       <Row className="p-2 mission-heading mt-5 justify-content-center">
         <h1> SPACECREW ASSEMBLE !! </h1>
       </Row>
-      <Row className="p-2 mission-subtext mt-5 mb-4 justify-content-center">
+      <Row className="p-2 mission-subtext mt-5 mb-4 ">
         As a result of an Alien invasion our Galaxy has been destroyed. Only you
         and your crew survived the Apocalypse. As a captain of your spaceship
         you must now decide how to populate alien planets with your skillful
