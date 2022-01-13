@@ -4,6 +4,8 @@ import Planets from "./Planets";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+
 // import {NavLink} from 'react-router-dom';
 
 function Select() {
@@ -26,20 +28,15 @@ function Select() {
         </Col>
       </Row>
       <br />
+      <Row>
+      <Button variant="light" type="button" className="startBtn ">
+            View Mission Status!
+          </Button>
+      </Row>
     </Container>
   );
 }
 
 export default Select;
 
-// <div className="container mt-5">
-//   <h5>Select 10 Crew members for your planet</h5>
-//   <div className="d-flex flex-lg-row">
-//     <div>
-//       <h1> jai's planet carousel </h1>
-//     </div>
-//     <div>
-//       <CrewMembers />
-//     </div>
-//   </div>
-// </div>
+
