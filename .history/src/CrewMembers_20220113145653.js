@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function CrewMembers() {
   const [data, getData] = useState([]);
-  const [selectedPeople, setSelectedPeople] = useState([]);
+  const [selectedPeople, getSelectedPeople] = useState([]);
 
   const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -27,17 +27,11 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (id, Name) => {
-    const isSelected = selectedPeople.indexOf(id) > -1;
-
-    const newSelectedPeople = isSelected
-      ? selectedPeople.filter((person) => person != id)
-      : [...selectedPeople, id];
-
-    setSelectedPeople(newSelectedPeople);
+  const onChangeSelectedPerson = (id) => {
+    const isSelected = 
   };
 
-  console.log(selectedPeople);
+  console.log(data);
 
   return (
     <div className="container mt-5">

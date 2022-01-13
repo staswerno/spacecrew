@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export default function CrewMembers() {
   const [data, getData] = useState([]);
-  const [selectedPeople, setSelectedPeople] = useState([]);
 
   const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -26,18 +25,6 @@ export default function CrewMembers() {
       })
     );
   }, []);
-
-  const onChangeSelectedPerson = (id, Name) => {
-    const isSelected = selectedPeople.indexOf(id) > -1;
-
-    const newSelectedPeople = isSelected
-      ? selectedPeople.filter((person) => person != id)
-      : [...selectedPeople, id];
-
-    setSelectedPeople(newSelectedPeople);
-  };
-
-  console.log(selectedPeople);
 
   return (
     <div className="container mt-5">
@@ -70,14 +57,12 @@ export default function CrewMembers() {
                   Building <br /> {post.Building}{" "}
                 </p>
               </div>
-              <div>
-                <p className="p-1">
-                  Combat <br /> {post.Combat}{" "}
-                </p>
-                <p className="p-1">
-                  Science <br /> {post.Science}{" "}
-                </p>
-              </div>
+              <p className="p-1">
+                Combat <br /> {post.Combat}{" "}
+              </p>
+              <p className="p-1">
+                Science <br /> {post.Science}{" "}
+              </p>
               <p className="p-1">
                 Fertility <br /> {post.Fertility}{" "}
               </p>
@@ -87,21 +72,8 @@ export default function CrewMembers() {
                   style={{ backgroundColor: "green" }}
                   type="checkbox"
                   className="checkMark bg-success"
-                  checked={selectedPeople.indexOf(post._id) > -1}
-                  onChange={() => onChangeSelectedPerson(post._id)}
-                />
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <br />
-    </div>
-  );
-}
-
-/*
-(event) => {
+                  checked={post.select || false}
+                  onChange={(event) => {
                     let checked = event.target.checked;
                     getData(
                       data.map((data) => {
@@ -112,5 +84,14 @@ export default function CrewMembers() {
                         return data;
                       })
                     );
-                  }
-*/
+                  }}
+                />
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <br />
+    </div>
+  );
+}

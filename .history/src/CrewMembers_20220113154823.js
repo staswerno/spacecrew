@@ -28,7 +28,7 @@ export default function CrewMembers() {
   }, []);
 
   const onChangeSelectedPerson = (id, Name) => {
-    const isSelected = selectedPeople.indexOf(id) > -1;
+    const isSelected = selectedPeople.indexOf(id, Name) > -1;
 
     const newSelectedPeople = isSelected
       ? selectedPeople.filter((person) => person != id)
@@ -87,7 +87,7 @@ export default function CrewMembers() {
                   style={{ backgroundColor: "green" }}
                   type="checkbox"
                   className="checkMark bg-success"
-                  checked={selectedPeople.indexOf(post._id) > -1}
+                  checked={selectedPeople.indexOf(post._id:row) > -1}
                   onChange={() => onChangeSelectedPerson(post._id)}
                 />
               </p>

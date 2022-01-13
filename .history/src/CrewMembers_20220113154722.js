@@ -28,7 +28,7 @@ export default function CrewMembers() {
   }, []);
 
   const onChangeSelectedPerson = (id, Name) => {
-    const isSelected = selectedPeople.indexOf(id) > -1;
+    const isSelected = selectedPeople.indexOf(id, Name) > -1;
 
     const newSelectedPeople = isSelected
       ? selectedPeople.filter((person) => person != id)

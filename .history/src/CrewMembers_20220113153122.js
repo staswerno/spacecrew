@@ -27,7 +27,7 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (id, Name) => {
+  const onChangeSelectedPerson = (id) => {
     const isSelected = selectedPeople.indexOf(id) > -1;
 
     const newSelectedPeople = isSelected
@@ -37,7 +37,7 @@ export default function CrewMembers() {
     setSelectedPeople(newSelectedPeople);
   };
 
-  console.log(selectedPeople);
+  console.log(data);
 
   return (
     <div className="container mt-5">

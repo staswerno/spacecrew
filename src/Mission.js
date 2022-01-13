@@ -20,7 +20,7 @@ function Mission() {
         <br />
         Good Luck! <br />
       </Row>
-      <Row class="p-2 justify-content-center">
+      <Row >
         <NavLink to="/select">
           <Button variant="light" type="button" className="startBtn ">
             Start Mission!
