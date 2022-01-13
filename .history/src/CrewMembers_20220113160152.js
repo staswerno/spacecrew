@@ -27,47 +27,12 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (
-    id,
-    Name,
-    Origin,
-    Leadership,
-    Mining,
-    Farming,
-    Building,
-    Combat,
-    Science,
-    Fertility
-  ) => {
-    const isSelected =
-      selectedPeople.indexOf(
-        id,
-        Name,
-        Origin,
-        Leadership,
-        Mining,
-        Farming,
-        Building,
-        Combat,
-        Science,
-        Fertility
-      ) > -1;
+  const onChangeSelectedPerson = (id, Name, Origin) => {
+    const isSelected = selectedPeople.indexOf(id, Name, Origin) > -1;
 
     const newSelectedPeople = isSelected
       ? selectedPeople.filter((person) => person != id)
-      : [
-          ...selectedPeople,
-          id,
-          Name,
-          Origin,
-          Leadership,
-          Mining,
-          Farming,
-          Building,
-          Combat,
-          Science,
-          Fertility,
-        ];
+      : [...selectedPeople, Name, Origin];
 
     setSelectedPeople(newSelectedPeople);
   };
@@ -123,32 +88,11 @@ export default function CrewMembers() {
                   type="checkbox"
                   className="checkMark bg-success"
                   checked={
-                    selectedPeople.indexOf(
-                      post._id,
-                      post.Name,
-                      post.Origin,
-                      post.Leadership,
-                      post.Mining,
-                      post.Farming,
-                      post.Building,
-                      post.Combat,
-                      post.Science,
-                      post.Fertility
-                    ) > -1
+                    selectedPeople.indexOf(post._id, post.Name, post.Origin) >
+                    -1
                   }
                   onChange={() =>
-                    onChangeSelectedPerson(
-                      post._id,
-                      post.Name,
-                      post.Origin,
-                      post.Leadership,
-                      post.Mining,
-                      post.Farming,
-                      post.Building,
-                      post.Combat,
-                      post.Science,
-                      post.Fertility
-                    )
+                    onChangeSelectedPerson(post._id, post.Name, post.Origin)
                   }
                 />
               </p>

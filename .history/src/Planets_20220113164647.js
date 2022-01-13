@@ -37,7 +37,7 @@ function Planets() {
       {isLoading ? (
         <div>is loading...</div>
       ) : (
-        <Carousel autoPlay="false">
+        <Carousel autoPlay="true">
           {planets.map((planet, index) => (
             <Carousel.Item key={index}>
               <Row>

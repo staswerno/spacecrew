@@ -27,18 +27,7 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (
-    id,
-    Name,
-    Origin,
-    Leadership,
-    Mining,
-    Farming,
-    Building,
-    Combat,
-    Science,
-    Fertility
-  ) => {
+  const onChangeSelectedPerson = (id, Name, Origin, Leadership, Mining) => {
     const isSelected =
       selectedPeople.indexOf(
         id,
@@ -57,7 +46,6 @@ export default function CrewMembers() {
       ? selectedPeople.filter((person) => person != id)
       : [
           ...selectedPeople,
-          id,
           Name,
           Origin,
           Leadership,

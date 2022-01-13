@@ -27,47 +27,12 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (
-    id,
-    Name,
-    Origin,
-    Leadership,
-    Mining,
-    Farming,
-    Building,
-    Combat,
-    Science,
-    Fertility
-  ) => {
-    const isSelected =
-      selectedPeople.indexOf(
-        id,
-        Name,
-        Origin,
-        Leadership,
-        Mining,
-        Farming,
-        Building,
-        Combat,
-        Science,
-        Fertility
-      ) > -1;
+  const onChangeSelectedPerson = (id, Name, Origin) => {
+    const isSelected = selectedPeople.indexOf(id, Name, Origin) > -1;
 
     const newSelectedPeople = isSelected
       ? selectedPeople.filter((person) => person != id)
-      : [
-          ...selectedPeople,
-          id,
-          Name,
-          Origin,
-          Leadership,
-          Mining,
-          Farming,
-          Building,
-          Combat,
-          Science,
-          Fertility,
-        ];
+      : [...selectedPeople, Name, Origin];
 
     setSelectedPeople(newSelectedPeople);
   };

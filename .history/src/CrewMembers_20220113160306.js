@@ -27,47 +27,12 @@ export default function CrewMembers() {
     );
   }, []);
 
-  const onChangeSelectedPerson = (
-    id,
-    Name,
-    Origin,
-    Leadership,
-    Mining,
-    Farming,
-    Building,
-    Combat,
-    Science,
-    Fertility
-  ) => {
-    const isSelected =
-      selectedPeople.indexOf(
-        id,
-        Name,
-        Origin,
-        Leadership,
-        Mining,
-        Farming,
-        Building,
-        Combat,
-        Science,
-        Fertility
-      ) > -1;
+  const onChangeSelectedPerson = (id, Name, Origin) => {
+    const isSelected = selectedPeople.indexOf(id, Name, Origin) > -1;
 
     const newSelectedPeople = isSelected
       ? selectedPeople.filter((person) => person != id)
-      : [
-          ...selectedPeople,
-          id,
-          Name,
-          Origin,
-          Leadership,
-          Mining,
-          Farming,
-          Building,
-          Combat,
-          Science,
-          Fertility,
-        ];
+      : [...selectedPeople, Name, Origin];
 
     setSelectedPeople(newSelectedPeople);
   };
@@ -129,11 +94,7 @@ export default function CrewMembers() {
                       post.Origin,
                       post.Leadership,
                       post.Mining,
-                      post.Farming,
-                      post.Building,
-                      post.Combat,
-                      post.Science,
-                      post.Fertility
+                      post.Farming
                     ) > -1
                   }
                   onChange={() =>
@@ -143,11 +104,7 @@ export default function CrewMembers() {
                       post.Origin,
                       post.Leadership,
                       post.Mining,
-                      post.Farming,
-                      post.Building,
-                      post.Combat,
-                      post.Science,
-                      post.Fertility
+                      post.Farming
                     )
                   }
                 />

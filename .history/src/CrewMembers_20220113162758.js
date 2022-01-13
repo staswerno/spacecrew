@@ -57,7 +57,6 @@ export default function CrewMembers() {
       ? selectedPeople.filter((person) => person != id)
       : [
           ...selectedPeople,
-          id,
           Name,
           Origin,
           Leadership,

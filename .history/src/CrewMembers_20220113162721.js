@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function CrewMembers() {
   const [data, getData] = useState([]);
-  const [selectedPeople, setSelectedPeople] = useState([]);
+  const [selectedPeople, setSelectedPeople] = useState({});
 
   const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -57,7 +57,6 @@ export default function CrewMembers() {
       ? selectedPeople.filter((person) => person != id)
       : [
           ...selectedPeople,
-          id,
           Name,
           Origin,
           Leadership,
