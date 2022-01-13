@@ -10,8 +10,8 @@ function Planets() {
   return (
     <div className="planetsCaro">
       <Carousel>
-        {planets.map((planet) => (
-          <Carousel.Item>
+        {planets.map((planet, index) => (
+          <Carousel.Item key={inex}>
             <img
               className="testimonialImages d-block w-100"
               src={Bairkan}

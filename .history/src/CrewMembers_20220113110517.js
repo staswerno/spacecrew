@@ -29,11 +29,10 @@ export default function CrewMembers() {
   return (
     <div className="container mt-5">
       <div className="posts  scrollbar scrollbar-success  ">
-        {data.map((post, index) => (
-          <div
-            key={index}
-            className="decoration force-overflow overflow-auto m-3 "
-          >
+        {data.map((post) => (
+          <div key={post.id}>
+            {post.Name}
+            className="decoration force-overflow overflow-auto m-3 " >
             <div className="d-flex text-center flex-row flex-wrap justify-content-between">
               <h4 className="p-3 fw-bold ">{post.Name} </h4>
               <p className="p-1">
@@ -66,7 +65,7 @@ export default function CrewMembers() {
                   style={{ backgroundColor: "green" }}
                   type="checkbox"
                   className="checkMark bg-success"
-                  checked={post.select || false}
+                  checked={post.select}
                   onChange={(event) => {
                     let checked = event.target.checked;
                     getData(

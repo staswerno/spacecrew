@@ -35,10 +35,12 @@ export default function CrewMembers() {
             className="decoration force-overflow overflow-auto m-3 "
           >
             <div className="d-flex text-center flex-row flex-wrap justify-content-between">
-              <h4 className="p-3 fw-bold ">{post.Name} </h4>
-              <p className="p-1">
-                Origin <br /> {post.Origin}{" "}
-              </p>
+              <div>
+                <h4 className="p-3 fw-bold ">{post.Name} </h4>
+                <p className="p-1">
+                  Origin <br /> {post.Origin}{" "}
+                </p>
+              </div>
               <p className="p-1">
                 Leadership <br /> {post.Leadership}{" "}
               </p>

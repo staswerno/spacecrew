@@ -11,7 +11,7 @@ function Planets() {
     <div className="planetsCaro">
       <Carousel>
         {planets.map((planet) => (
-          <Carousel.Item>
+          <Carousel.Item key={planet.id}>
             <img
               className="testimonialImages d-block w-100"
               src={Bairkan}

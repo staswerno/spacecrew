@@ -66,7 +66,7 @@ export default function CrewMembers() {
                   style={{ backgroundColor: "green" }}
                   type="checkbox"
                   className="checkMark bg-success"
-                  checked={post.select || false}
+                  checked={post.select}
                   onChange={(event) => {
                     let checked = event.target.checked;
                     getData(
