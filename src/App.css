@@ -1,177 +1,176 @@
 * {
-  background-color: black;
-  color: green;
-  font-family: "Space Mono", monospace;
+	background-color: black;
+	color: green;
+	font-family: "Space Mono", monospace;
 }
 
 .logoContainer,
 .logoContainer:before,
 .logoContainer:after {
-  padding: 0;
-  margin: 0;
-  /* box-sizing: border-box; */
-  background-color: black;
+	padding: 0;
+	margin: 0;
+	/* box-sizing: border-box; */
+	background-color: black;
 }
 .logoContainer .logoBtn {
-  height: 300px;
-  width: 400px;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: black;
-  border: black;
+	height: 300px;
+	width: 400px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: black;
+	border: black;
 }
 
 .logoContainer .logoBtn:before {
-  content: "";
-  background-image: conic-gradient(green 20deg, transparent 120deg);
-  height: 150%;
-  width: 150%;
-  position: absolute;
-  left: -25%;
-  top: -25%;
-  animation: rotate 3s infinite linear;
-  background-color: black;
+	content: "";
+	background-image: conic-gradient(green 20deg, transparent 120deg);
+	height: 150%;
+	width: 150%;
+	position: absolute;
+	left: -25%;
+	top: -25%;
+	animation: rotate 3s infinite linear;
+	background-color: black;
 }
 @keyframes rotate {
-  100% {
-    transform: rotate(-360deg);
-  }
+	100% {
+		transform: rotate(-360deg);
+	}
 }
 .logoContainer .logoBtn:after {
-  content: "SPACECREW";
-  height: 94%;
-  width: 94%;
-  position: absolute;
-  background-color: black;
-  border-radius: 5px;
-  top: 3%;
-  left: 3%;
-  color: green;
-  display: grid;
-  place-items: center;
-  font-size: 40px;
-  letter-spacing: 6px;
+	content: "SPACECREW";
+	height: 94%;
+	width: 94%;
+	position: absolute;
+	background-color: black;
+	border-radius: 5px;
+	top: 3%;
+	left: 3%;
+	color: green;
+	display: grid;
+	place-items: center;
+	font-size: 40px;
+	letter-spacing: 6px;
 }
 .logoBtn:hover {
-  background-color: black !important;
+	background-color: black !important;
 }
 
 .mission {
-  color: green;
-  background-color: black;
-  font-family: "Space Mono", monospace;
-  width: 100vw;
-  text-align: center;
+	color: green;
+	background-color: black;
+	font-family: "Space Mono", monospace;
+	width: 100%;
+	text-align: center;
 }
 
 .mission-subtext {
-  font-size: 1.5em;
-
-  width: 80%;
+	font-size: 1.5em;
+	width: 20%;
 }
 
 .startBtn {
-  background-color: green !important;
-  color: black;
-  border: none !important;
-  font-size: 1.5em !important;
-  width: 300px;
+	background-color: green !important;
+	color: black;
+	border: none !important;
+	font-size: 1.5em !important;
+	width: 300px;
 }
 
 .startBtn:hover {
-  background-color: black !important;
-  color: green !important;
-  border: none;
+	background-color: black !important;
+	color: green !important;
+	border: none;
 }
 
 .decoration {
-  color: green;
-  border: 1px solid green;
+	color: green;
+	border: 1px solid green;
 }
 
 .force-overflow {
-  background: green;
+	background: green;
 }
 
 .force-overflow div,
 h4,
 p {
-  background: green;
-  color: black;
+	background: green;
+	color: black;
 }
 .force-overflow div {
-  background: green;
-  color: black;
+	background: green;
+	color: black;
 }
 .form-check-input {
-  background: rgb(22, 150, 22);
+	background: rgb(22, 150, 22);
 }
 /* Check box */
 .checkMark {
-  margin: 20px;
-  height: 35px;
-  width: 35px;
-  background: green;
-  cursor: pointer;
+	margin: 20px;
+	height: 35px;
+	width: 35px;
+	background: green;
+	cursor: pointer;
 }
 
 /* scroll bar*/
 .scrollbar {
-  position: relative;
-  overflow-y: scroll;
-  height: 700px;
-  width: 850px;
-  cursor: pointer;
+	position: relative;
+	overflow-y: scroll;
+	height: 700px;
+	width: 850px;
+	cursor: pointer;
 }
 ::-webkit-scrollbar {
-  width: 30px;
+	width: 30px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px green;
-  background: green;
-  border-radius: 15px;
+	box-shadow: inset 0 0 5px green;
+	background: green;
+	border-radius: 15px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(48, 78, 48);
-  border-radius: 15px;
-  height: 5px;
+	background: rgb(48, 78, 48);
+	border-radius: 15px;
+	height: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(48, 78, 48);
+	background: rgb(48, 78, 48);
 }
 
 .selectContainer {
-  color: green;
-  text-align: center;
-  align-self: center;
+	color: green;
+	text-align: center;
+	align-self: center;
 }
 
 .planetsCaro {
-  border: 3px solid green;
-  /* margin-top: 60px; */
-  background-color: green;
+	border: 3px solid green;
+	/* margin-top: 60px; */
+	background-color: green;
 }
 
 .butSelect {
-  background: green;
-  color: black;
-  border-radius: 5px;
-  padding: 8px;
+	background: green;
+	color: black;
+	border-radius: 5px;
+	padding: 8px;
 }
 
 .planetInfo {
-  text-align: center;
+	text-align: center;
 }
