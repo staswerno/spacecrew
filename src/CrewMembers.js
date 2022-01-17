@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export default function CrewMembers() {
+export default function CrewMembers({
+	selectedPeople,
+	onChangeSelectedPerson,
+}) {
 	const [data, getData] = useState([]);
-	const [selectedPeople, setSelectedPeople] = useState([]);
 
 	const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -26,53 +28,6 @@ export default function CrewMembers() {
 			})
 		);
 	}, []);
-
-	const onChangeSelectedPerson = (
-		id,
-		Name,
-		Origin,
-		Leadership,
-		Mining,
-		Farming,
-		Building,
-		Combat,
-		Science,
-		Fertility
-	) => {
-		const isSelected =
-			selectedPeople.indexOf(
-				id,
-				Name,
-				Origin,
-				Leadership,
-				Mining,
-				Farming,
-				Building,
-				Combat,
-				Science,
-				Fertility
-			) > -1;
-
-		const newSelectedPeople = isSelected
-			? selectedPeople.filter((person) => person != id)
-			: [
-					...selectedPeople,
-					id,
-					Name,
-					Origin,
-					Leadership,
-					Mining,
-					Farming,
-					Building,
-					Combat,
-					Science,
-					Fertility,
-			  ];
-
-		setSelectedPeople(newSelectedPeople);
-	};
-
-	console.log(selectedPeople);
 
 	return (
 		<div className="container mt-5">
@@ -160,18 +115,3 @@ export default function CrewMembers() {
 		</div>
 	);
 }
-
-/*
-(event) => {
-                    let checked = event.target.checked;
-                    getData(
-                      data.map((data) => {
-                        if (post.id === data.id) {
-                          data.select = checked;
-                          console.log(data.select);
-                        }
-                        return data;
-                      })
-                    );
-                  }
-*/
