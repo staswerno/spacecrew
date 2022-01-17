@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 export default function CrewMembers() {
 	const [data, getData] = useState([]);
 	const [selectedPeople, setSelectedPeople] = useState([]);
+	const [selectedCrew, setSelectedCrew] = useState([]);
+	const [selectedLeadership, setSelectedLeadership] = useState(0);
+	const [crewMemberIndex, setCrewMemberIndex] = useState();
 
 	const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -39,6 +42,7 @@ export default function CrewMembers() {
 		Science,
 		Fertility
 	) => {
+		
 		const isSelected =
 			selectedPeople.indexOf(
 				id,
@@ -51,7 +55,7 @@ export default function CrewMembers() {
 				Combat,
 				Science,
 				Fertility
-			) > -1;
+			) > -1;			
 
 		const newSelectedPeople = isSelected
 			? selectedPeople.filter((person) => person != id)
@@ -66,13 +70,33 @@ export default function CrewMembers() {
 					Building,
 					Combat,
 					Science,
-					Fertility,
+					Fertility
 			  ];
 
 		setSelectedPeople(newSelectedPeople);
+		
+		
+
+		if (selectedCrew.includes(id)) { 
+			
+			setCrewMemberIndex(selectedCrew.indexOf(id)); //Takes an old index for some reason
+			
+			console.log("crewmemberindex" + crewMemberIndex)
+			selectedCrew.splice(crewMemberIndex, 1)
+			setSelectedLeadership(selectedLeadership - Leadership);
+			} else {
+			setSelectedCrew([...selectedCrew, id])
+			setSelectedLeadership(selectedLeadership + Leadership);
+
+		}
+		console.log("the id " + id);
 	};
 
-	console.log(selectedPeople);
+	//console.log(selectedPeople);
+	console.log("Leadership:" + selectedLeadership);
+	console.log("Selected Crew:" + selectedCrew)
+	console.log("crewmemberindex" + crewMemberIndex)
+	
 
 	return (
 		<div className="container mt-5">
