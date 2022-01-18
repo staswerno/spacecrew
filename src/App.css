@@ -174,3 +174,7 @@ p {
 .planetInfo {
 	text-align: center;
 }
+
+.crew-name {
+	margin: auto;
+}
