@@ -54,10 +54,10 @@ function Select() {
 		fetch("https://space-crew.herokuapp.com/planets")
 			.then((res) => res.json())
 			.then((result) => {
-			setIsLoading(false);
-			setPlanets(result);
-		  // console.log(result); 
-		});
+				setIsLoading(false);
+				setPlanets(result);
+				// console.log(result);
+			});
 	}, []);
 
 	const onChangeSelectedPerson = (
@@ -121,6 +121,15 @@ function Select() {
 	console.log("Leadership:" + selectedLeadership);
 	console.log("Selected Crew:" + selectedCrew);
 	console.log("crewmemberindex" + crewMemberIndex);
+	console.log("Selected Crew Length:" + selectedCrew.length);
+
+	const crewAlert = () => {
+		if (selectedCrew.length > 10) {
+			alert("Your crew is too big! Please select only 10 crew members");
+		}
+	};
+
+	crewAlert();
 
 	return (
 		<Container className="selectContainer">
@@ -131,51 +140,53 @@ function Select() {
 				<Col>
 					<div>
 						{" "}
-						<div className=" selection " style =  {{ visibility: iShow ? "visible" : "hidden" }}> 
-            <h4>You selected Planet {selectedPlanet.Planet}</h4> 
-        </div>
-            <div className="planetsCaro mt-3">
-                {isLoading ? (
-                    <div>is loading...</div>
-                ) : (
-                    <Carousel interval={null}
-                    >
-                        {planets.map( (planet, index) => (
-                            <Carousel.Item key={index}>
-                                <Row  style = {{cursor: 'pointer'}} >
-                                    <img
-                                    className="testimonialImages d-block w-100"
-                                    src={name[planet.Planet]}
-                                    alt='Bairkan'
-                                    onClick={ () => {
-                                        setSelectedPlanet(planet) 
-                                        setIShow(true);
-                                    }}
-                                    />
-                                </Row>
-                                <Row className = "m-5  justify-content-md-center planetInfo">
-                                    <h4>Planet {planet.Planet}</h4>
-                                    <br />
-                                    <Row >
-                                        
-                                            <h6>Solar System : {planet.SolarSystem}</h6>
-                                            <h6>Location X : {planet.LocationX}</h6>
-                                            <h6>Location Y: {planet.LocationY}</h6>
-                                            <h6>Location Z: {planet.LocationZ}</h6>
-                                            <h6>Vegetation: {planet.Vegetation}</h6>
-                                            <h6>Resources: {planet.Resources}</h6>
-                                            <h6>Alien-Life: {planet.AlienLife}</h6>
-                                            <h6>Climatehostility: {planet.ClimateHostility}</h6>
-                                            <h6>Suitability: {planet.Suitability}</h6>
-                                            <h6>SuitabilityControl: {planet.SuitabilityControl}</h6>
-                                        
-                                    </Row>
-                                </Row>
-                            </Carousel.Item>
-                        ))}
-                    </Carousel>
-                )}
-        </div>{" "}
+						<div
+							className=" selection "
+							style={{ visibility: iShow ? "visible" : "hidden" }}
+						>
+							<h4>You selected Planet {selectedPlanet.Planet}</h4>
+						</div>
+						<div className="planetsCaro mt-3">
+							{isLoading ? (
+								<div>is loading...</div>
+							) : (
+								<Carousel interval={null}>
+									{planets.map((planet, index) => (
+										<Carousel.Item key={index}>
+											<Row style={{ cursor: "pointer" }}>
+												<img
+													className="testimonialImages d-block w-100"
+													src={name[planet.Planet]}
+													alt="Bairkan"
+													onClick={() => {
+														setSelectedPlanet(planet);
+														setIShow(true);
+													}}
+												/>
+											</Row>
+											<Row className="m-5  justify-content-md-center planetInfo">
+												<h4>Planet {planet.Planet}</h4>
+												<br />
+												<Row>
+													<h6>Solar System : {planet.SolarSystem}</h6>
+													<h6>Location X : {planet.LocationX}</h6>
+													<h6>Location Y: {planet.LocationY}</h6>
+													<h6>Location Z: {planet.LocationZ}</h6>
+													<h6>Vegetation: {planet.Vegetation}</h6>
+													<h6>Resources: {planet.Resources}</h6>
+													<h6>Alien-Life: {planet.AlienLife}</h6>
+													<h6>Climatehostility: {planet.ClimateHostility}</h6>
+													<h6>Suitability: {planet.Suitability}</h6>
+													<h6>
+														SuitabilityControl: {planet.SuitabilityControl}
+													</h6>
+												</Row>
+											</Row>
+										</Carousel.Item>
+									))}
+								</Carousel>
+							)}
+						</div>{" "}
 					</div>
 				</Col>
 				<Col>
@@ -193,7 +204,7 @@ function Select() {
 					variant="light"
 					type="button"
 					className="startBtn "
-					onClick={handleShow}
+					onClick={selectedCrew.length > 10 ? crewAlert : handleShow}
 				>
 					View Mission Status!
 				</Button>
