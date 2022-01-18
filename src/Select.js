@@ -8,6 +8,30 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import { NavLink } from "react-router-dom";
+import Bairkan from "./../src/Data/Planets/Bairkan.png";
+import Faihu from "./../src/Data/Planets/Faihu.png";
+import Horst from "./../src/Data/Planets/Horst.png";
+import Jer from "./../src/Data/Planets/Jer.png";
+import Kusma from "./../src/Data/Planets/Kusma.png";
+import Lagus from "./../src/Data/Planets/Lagus.png";
+import Manna from "./../src/Data/Planets/Manna.png";
+import Raida from "./../src/Data/Planets/Raida.png";
+import Scloop from "./../src/Data/Planets/Scloop.png";
+import Urus from "./../src/Data/Planets/Urus.png";
+import Carousel from "react-bootstrap/Carousel";
+
+const name = {
+	Bairkan,
+	Jer,
+	Scloop,
+	Faihu,
+	Horst,
+	Kusma,
+	Lagus,
+	Manna,
+	Raida,
+	Urus,
+};
 
 function Select() {
 	const [show, setShow] = useState(false);
@@ -17,6 +41,24 @@ function Select() {
 	const [crewMemberIndex, setCrewMemberIndex] = useState();
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	// variables used for planets
+	const [planets, setPlanets] = useState([]);
+	const [isLoading, setIsLoading] = useState([true]);
+	//info about planet selected by player
+	const [selectedPlanet, setSelectedPlanet] = useState({});
+	const [iShow, setIShow] = useState(false);
+
+	//fetching planets data from api
+	useEffect(() => {
+		fetch("https://space-crew.herokuapp.com/planets")
+			.then((res) => res.json())
+			.then((result) => {
+			setIsLoading(false);
+			setPlanets(result);
+		  // console.log(result); 
+		});
+	}, []);
 
 	const onChangeSelectedPerson = (
 		id,
@@ -89,7 +131,51 @@ function Select() {
 				<Col>
 					<div>
 						{" "}
-						<Planets />{" "}
+						<div className=" selection " style =  {{ visibility: iShow ? "visible" : "hidden" }}> 
+            <h4>You selected Planet {selectedPlanet.Planet}</h4> 
+        </div>
+            <div className="planetsCaro mt-3">
+                {isLoading ? (
+                    <div>is loading...</div>
+                ) : (
+                    <Carousel interval={null}
+                    >
+                        {planets.map( (planet, index) => (
+                            <Carousel.Item key={index}>
+                                <Row  style = {{cursor: 'pointer'}} >
+                                    <img
+                                    className="testimonialImages d-block w-100"
+                                    src={name[planet.Planet]}
+                                    alt='Bairkan'
+                                    onClick={ () => {
+                                        setSelectedPlanet(planet) 
+                                        setIShow(true);
+                                    }}
+                                    />
+                                </Row>
+                                <Row className = "m-5  justify-content-md-center planetInfo">
+                                    <h4>Planet {planet.Planet}</h4>
+                                    <br />
+                                    <Row >
+                                        
+                                            <h6>Solar System : {planet.SolarSystem}</h6>
+                                            <h6>Location X : {planet.LocationX}</h6>
+                                            <h6>Location Y: {planet.LocationY}</h6>
+                                            <h6>Location Z: {planet.LocationZ}</h6>
+                                            <h6>Vegetation: {planet.Vegetation}</h6>
+                                            <h6>Resources: {planet.Resources}</h6>
+                                            <h6>Alien-Life: {planet.AlienLife}</h6>
+                                            <h6>Climatehostility: {planet.ClimateHostility}</h6>
+                                            <h6>Suitability: {planet.Suitability}</h6>
+                                            <h6>SuitabilityControl: {planet.SuitabilityControl}</h6>
+                                        
+                                    </Row>
+                                </Row>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                )}
+        </div>{" "}
 					</div>
 				</Col>
 				<Col>

@@ -33,25 +33,24 @@ const name = {
 function Planets() {
   const [planets, setPlanets] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
-  const [select, setSelect] = useState({});
+  const [selectedPlanet, setSelectedPlanet] = useState({});
   const [show, setShow] = useState(false);
-
   useEffect(() => {
     fetch("https://space-crew.herokuapp.com/planets")
       .then((res) => res.json())
       .then((result) => {
         setIsLoading(false);
         setPlanets(result);
-        console.log(result);
+        // console.log(result); 
       });
   }, []);
 
-    console.log(name);
-     console.log(select)  
+    // console.log(name);
+    //  console.log(select)  
     return (
         <div>
         <div className=" selection " style =  {{ visibility: show ? "visible" : "hidden" }}> 
-            <h4>You selected Planet {select.Planet}</h4> 
+            <h4>You selected Planet {selectedPlanet.Planet}</h4> 
         </div>
             <div className="planetsCaro mt-3">
                 {isLoading ? (
@@ -67,7 +66,7 @@ function Planets() {
                                     src={name[planet.Planet]}
                                     alt='Bairkan'
                                     onClick={ () => {
-                                        setSelect(planet) 
+                                        setSelectedPlanet(planet) 
                                         setShow(true);
                                     }}
                                     />
@@ -94,7 +93,6 @@ function Planets() {
                         ))}
                     </Carousel>
                 )}
-            
         </div>
         </div>
     )
