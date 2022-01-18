@@ -51,7 +51,7 @@ function Select() {
 	const [planetClimate, setPlanetClimate] = useState();
 	const [planetAlienLife, setPlanetAlienLife] = useState();
 	const [planetResources, setPlanetResources] = useState();
-	
+
 	const [colonyFarming, setColonyFarming] = useState(0);
 	const [colonyMining, setColonyMining] = useState(0);
 	const [colonyBuilding, setColonyBuilding] = useState(0);
@@ -59,7 +59,7 @@ function Select() {
 	const [colonyScience, setColonyScience] = useState();
 	const [colonyLeadership, setColonyLeadership] = useState(0);
 	const [colonyFertility, setColonyFertility] = useState(0);
-  
+
 	const [hasColonySurvived, setHasColonySurvived] = useState(false);
 
 	const [outPutColonySurvival, setOutPutColonySurvival] = useState();
@@ -67,10 +67,6 @@ function Select() {
 	const [outPutColonyScience, setOutPutColonyScience] = useState();
 	const [outPutColonyWealth, setOutPutColonyWealth] = useState();
 	const [outPutColonyPopulation, setOutPutColonyPopulation] = useState();
-
-
-
-	
 
 	//fetching planets data from api
 	useEffect(() => {
@@ -95,10 +91,12 @@ function Select() {
 		Science,
 		Fertility
 	) => {
-		const newCrew = selectedCrew.includes(id) ? selectedCrew.filter(crewId => id !== crewId) : [...selectedCrew, id];
-		setSelectedCrew(newCrew)
+		const newCrew = selectedCrew.includes(id)
+			? selectedCrew.filter((crewId) => id !== crewId)
+			: [...selectedCrew, id];
+		setSelectedCrew(newCrew);
 
-		if (selectedCrew.includes(id)) { 
+		if (selectedCrew.includes(id)) {
 			setColonyFarming(colonyFarming - Farming);
 			setColonyMining(colonyMining - Mining);
 			setColonyBuilding(colonyBuilding - Building);
@@ -112,8 +110,7 @@ function Select() {
 			determineColonyScience();
 			determineColonyPopulation();
 			//Put stuff on one object
-		
-		  } else {
+		} else {
 			setColonyFarming(colonyFarming + Farming);
 			setColonyMining(colonyMining + Mining);
 			setColonyBuilding(colonyBuilding + Building);
@@ -126,89 +123,122 @@ function Select() {
 			determineColonyGovernment();
 			determineColonyScience();
 			determineColonyPopulation();
-		
-		
-		  }
+		}
 	};
 
 	//console.log(selectedPeople);
 
-
-
-
 	const determineColonySurvival = () => {
-		if (colonyFarming + (planetPlantLife/2) < 85) {
-			setOutPutColonySurvival("There was not enough food for your colony. The people starved to death.")
-		} else if (colonyBuilding + (colonyMining/2) < planetClimate) {
-			setOutPutColonySurvival("The climate was too hostile for your colony. The hostile weather tore down their shelter and protection and killed everyone on the planet.")
-		} else if (colonyCombat + (colonyScience/2) < planetAlienLife) {
-			setOutPutColonySurvival("Aliens on the planet started a war with the colony. Sadly your colony was defeated and got wiped out from the aliens.")
+		if (colonyFarming + planetPlantLife / 2 < 85) {
+			setOutPutColonySurvival(
+				"There was not enough food for your colony. The people starved to death."
+			);
+		} else if (colonyBuilding + colonyMining / 2 < planetClimate) {
+			setOutPutColonySurvival(
+				"The climate was too hostile for your colony. The hostile weather tore down their shelter and protection and killed everyone on the planet."
+			);
+		} else if (colonyCombat + colonyScience / 2 < planetAlienLife) {
+			setOutPutColonySurvival(
+				"Aliens on the planet started a war with the colony. Sadly your colony was defeated and got wiped out from the aliens."
+			);
 		} else {
-		  setHasColonySurvived(true);
-		  setOutPutColonySurvival("Your colony survived!")
-		  console.log("Farming " + colonyFarming + " Pflanzen " + planetPlantLife )
+			setHasColonySurvived(true);
+			setOutPutColonySurvival("Your colony survived!");
+			console.log("Farming " + colonyFarming + " Pflanzen " + planetPlantLife);
 		}
-	  }
-		
-	  const determineColonyWealth = () => {
-		  if (hasColonySurvived === false) {
-			setOutPutColonyWealth(null)
-		  } else if (colonyMining + (planetResources/2) < 50) {
-			setOutPutColonyWealth("The people in the colony are very poor, but they get by.")
-			console.log("Wealth outcome: " + colonyMining + planetResources)
-		} else if (colonyMining + (planetResources/2) < 85) {
-			setOutPutColonyWealth("The people in the colony developed an economy, but it isn't very strong.")
-		} else if (colonyMining + (planetResources/2) < 100) {
-			setOutPutColonyWealth("The people in the colony are wealthy and have a strong economy.")
-		} else {
-			setOutPutColonyWealth("Your colonies wealth is thriving and their economy is booming.")
-			console.log("Wealth outcome: " + colonyMining + planetResources)
-		  }
-	  }
-	
-	  const determineColonyGovernment = () => {
-		if (hasColonySurvived === false) {
-			setOutPutColonyGovernment(null)
-		} else if (colonyLeadership + (colonyFertility/2) < 50) {
-			setOutPutColonyGovernment("The society broke apart and the people live in anarchy.")
-		} else if (colonyLeadership + (colonyFertility/2) < 85) {
-			setOutPutColonyGovernment("A tyrann has gained power and dominates the colony.")
-		} else if (colonyLeadership + (colonyFertility/2) < 100) {
-			setOutPutColonyGovernment("The colony has developed a functioning democracy.")
-		} else {
-			setOutPutColonyGovernment("The people have developed a new form of government, we wouldn't even have dared to dream of on earth. They call it the perfectarchy.")
-		  }
-	  }
-	
-	  const determineColonyScience = () => {
-		if (hasColonySurvived === false) {
-			setOutPutColonyScience(null)
-		} else if (colonyScience + colonyLeadership/2 < 50) {
-			setOutPutColonyScience("The colony has scientifically fallen back to the middle ages.")
-		} else if (colonyScience + colonyLeadership/2 < 85) {
-			setOutPutColonyScience("No wisdom past the industrialization survived the first few generations.")
-		} else if (colonyScience + colonyLeadership/2 < 100) {
-			setOutPutColonyScience("While building up the colony some researchers came up with new brilliant technologies.")
-		} else {
-			setOutPutColonyScience("New scientific breakthroughs have led the colony into a new age. Soon they will send a team back in time to save our beloved earth.")
-		  }
-	  }
-	
-	  const determineColonyPopulation = () => {
-		if (hasColonySurvived === false) {
-			setOutPutColonyPopulation(null)
-		} else if (colonyFertility + colonyFarming/2 < 50) {
-			setOutPutColonyPopulation("Due to a rare number of children the colonies size has strongly decreased over time. Only few colonists are left.")
-		} else if (colonyFertility + colonyFarming/2 < 85) {
-			setOutPutColonyPopulation("The population has barely increased since the start of the colonization.")
-		} else if (colonyFertility + colonyFarming/2 < 100) {
-			setOutPutColonyPopulation("The population of the colony increased greatly, just as it was planned.")
-		} else {
-			setOutPutColonyPopulation("The population of the colony exploded. Soon they will overpopulate the planet, if they don't expand to another solar system.")
-		  }
-	  }
+	};
 
-	  	/** 
+	const determineColonyWealth = () => {
+		if (hasColonySurvived === false) {
+			setOutPutColonyWealth(null);
+		} else if (colonyMining + planetResources / 2 < 50) {
+			setOutPutColonyWealth(
+				"The people in the colony are very poor, but they get by."
+			);
+			console.log("Wealth outcome: " + colonyMining + planetResources);
+		} else if (colonyMining + planetResources / 2 < 85) {
+			setOutPutColonyWealth(
+				"The people in the colony developed an economy, but it isn't very strong."
+			);
+		} else if (colonyMining + planetResources / 2 < 100) {
+			setOutPutColonyWealth(
+				"The people in the colony are wealthy and have a strong economy."
+			);
+		} else {
+			setOutPutColonyWealth(
+				"Your colonies wealth is thriving and their economy is booming."
+			);
+			console.log("Wealth outcome: " + colonyMining + planetResources);
+		}
+	};
+
+	const determineColonyGovernment = () => {
+		if (hasColonySurvived === false) {
+			setOutPutColonyGovernment(null);
+		} else if (colonyLeadership + colonyFertility / 2 < 50) {
+			setOutPutColonyGovernment(
+				"The society broke apart and the people live in anarchy."
+			);
+		} else if (colonyLeadership + colonyFertility / 2 < 85) {
+			setOutPutColonyGovernment(
+				"A tyrann has gained power and dominates the colony."
+			);
+		} else if (colonyLeadership + colonyFertility / 2 < 100) {
+			setOutPutColonyGovernment(
+				"The colony has developed a functioning democracy."
+			);
+		} else {
+			setOutPutColonyGovernment(
+				"The people have developed a new form of government, we wouldn't even have dared to dream of on earth. They call it the perfectarchy."
+			);
+		}
+	};
+
+	const determineColonyScience = () => {
+		if (hasColonySurvived === false) {
+			setOutPutColonyScience(null);
+		} else if (colonyScience + colonyLeadership / 2 < 50) {
+			setOutPutColonyScience(
+				"The colony has scientifically fallen back to the middle ages."
+			);
+		} else if (colonyScience + colonyLeadership / 2 < 85) {
+			setOutPutColonyScience(
+				"No wisdom past the industrialization survived the first few generations."
+			);
+		} else if (colonyScience + colonyLeadership / 2 < 100) {
+			setOutPutColonyScience(
+				"While building up the colony some researchers came up with new brilliant technologies."
+			);
+		} else {
+			setOutPutColonyScience(
+				"New scientific breakthroughs have led the colony into a new age. Soon they will send a team back in time to save our beloved earth."
+			);
+		}
+	};
+
+	const determineColonyPopulation = () => {
+		if (hasColonySurvived === false) {
+			setOutPutColonyPopulation(null);
+		} else if (colonyFertility + colonyFarming / 2 < 50) {
+			setOutPutColonyPopulation(
+				"Due to a rare number of children the colonies size has strongly decreased over time. Only few colonists are left."
+			);
+		} else if (colonyFertility + colonyFarming / 2 < 85) {
+			setOutPutColonyPopulation(
+				"The population has barely increased since the start of the colonization."
+			);
+		} else if (colonyFertility + colonyFarming / 2 < 100) {
+			setOutPutColonyPopulation(
+				"The population of the colony increased greatly, just as it was planned."
+			);
+		} else {
+			setOutPutColonyPopulation(
+				"The population of the colony exploded. Soon they will overpopulate the planet, if they don't expand to another solar system."
+			);
+		}
+	};
+
+	/** 
 		const colonyReport = (hasColonySurvived, determineColonySurvival, determineColonyWealth, determineColonyGovernment, determineColonyScience, determineColonyPopulation) => {
 		  if (hasColonySurvived = false) {
 			return determineColonySurvival
@@ -224,29 +254,35 @@ function Select() {
 		*/
 
 	const onClickPlanet = (planet) => {
-		console.log(planet)
-		setSelectedPlanet(planet) 
+		console.log(planet);
+		setSelectedPlanet(planet);
 		setIShow(true);
-		setPlanetPlantLife(planet.Vegetation)
-		setPlanetClimate(planet.ClimateHostility)
-		setPlanetAlienLife(planet.AlienLife)
-		setPlanetResources(planet.Resource)
-	}
+		setPlanetPlantLife(planet.Vegetation);
+		setPlanetClimate(planet.ClimateHostility);
+		setPlanetAlienLife(planet.AlienLife);
+		setPlanetResources(planet.Resource);
+	};
 
-	console.log(selectedPlanet, ' from select.js')
+	console.log(selectedPlanet, " from select.js");
+	console.log(selectedPlanet._id, " selected id");
 	console.log("Leadership:" + colonyLeadership);
 	console.log("Selected Crew:" + selectedCrew);
 
 	console.log(hasColonySurvived);
 
-	const crewAlert = () => {
+	if (selectedCrew.length > 10) {
+		alert("Your crew is too big! Please select only 10 crew members");
+	}
+
+	const missionStatusCheck = () => {
 		if (selectedCrew.length > 10) {
 			alert("Your crew is too big! Please select only 10 crew members");
+		} else if (!selectedPlanet._id) {
+			alert("Please select a planet to colonize.");
+		} else {
+			handleShow();
 		}
 	};
-
-	crewAlert();
-
 
 	return (
 		<Container className="selectContainer">
@@ -257,46 +293,49 @@ function Select() {
 				<Col>
 					<div>
 						{" "}
-						<div className=" selection " style =  {{ visibility: iShow ? "visible" : "hidden" }}> 
-            <h4>You selected Planet {selectedPlanet.Planet}</h4> 
-        </div>
-            <div className="planetsCaro mt-3">
-                {isLoading ? (
-                    <div>is loading...</div>
-                ) : (
-                    <Carousel interval={null}
-                    >
-                        {planets.map( (planet, index) => (
-                            <Carousel.Item key={index} onClick={() => onClickPlanet(planet)}>
-                                <Row  style = {{cursor: 'pointer'}} >
-                                    <img
-                                    className="testimonialImages d-block w-100"
-                                    src={name[planet.Planet]}
-                                    alt='Bairkan'
-                                    />
-                                </Row>
-                                <Row className = "m-5  justify-content-md-center planetInfo">
-                                    <h4>Planet {planet.Planet}</h4>
-                                    <br />
-                                    <Row >
-                                        
-                                            <h6>Solar System : {planet.SolarSystem}</h6>
-                                            <h6>Location X : {planet.LocationX}</h6>
-                                            <h6>Location Y: {planet.LocationY}</h6>
-                                            <h6>Location Z: {planet.LocationZ}</h6>
-                                            <h6>Vegetation: {planet.Vegetation}</h6>
-                                            <h6>Resources: {planet.Resources}</h6>
-                                            <h6>Alien-Life: {planet.AlienLife}</h6>
-                                            <h6>Climatehostility: {planet.ClimateHostility}</h6>
-                                            <h6>Suitability: {planet.Suitability}</h6>
-                                        
-                                    </Row>
-                                </Row>
-                            </Carousel.Item>
-                        ))}
-                    </Carousel>
-                )}
-        </div>{" "}
+						<div
+							className=" selection "
+							style={{ visibility: iShow ? "visible" : "hidden" }}
+						>
+							<h4>You selected Planet {selectedPlanet.Planet}</h4>
+						</div>
+						<div className="planetsCaro mt-3">
+							{isLoading ? (
+								<div>is loading...</div>
+							) : (
+								<Carousel interval={null}>
+									{planets.map((planet, index) => (
+										<Carousel.Item
+											key={index}
+											onClick={() => onClickPlanet(planet)}
+										>
+											<Row style={{ cursor: "pointer" }}>
+												<img
+													className="testimonialImages d-block w-100"
+													src={name[planet.Planet]}
+													alt="Bairkan"
+												/>
+											</Row>
+											<Row className="m-5  justify-content-md-center planetInfo">
+												<h4>Planet {planet.Planet}</h4>
+												<br />
+												<Row>
+													<h6>Solar System : {planet.SolarSystem}</h6>
+													<h6>Location X : {planet.LocationX}</h6>
+													<h6>Location Y: {planet.LocationY}</h6>
+													<h6>Location Z: {planet.LocationZ}</h6>
+													<h6>Vegetation: {planet.Vegetation}</h6>
+													<h6>Resources: {planet.Resources}</h6>
+													<h6>Alien-Life: {planet.AlienLife}</h6>
+													<h6>Climatehostility: {planet.ClimateHostility}</h6>
+													<h6>Suitability: {planet.Suitability}</h6>
+												</Row>
+											</Row>
+										</Carousel.Item>
+									))}
+								</Carousel>
+							)}
+						</div>{" "}
 					</div>
 				</Col>
 				<Col>
@@ -314,7 +353,7 @@ function Select() {
 					variant="light"
 					type="button"
 					className="startBtn "
-					onClick={selectedCrew.length > 10 ? crewAlert : handleShow}
+					onClick={missionStatusCheck}
 				>
 					View Mission Status!
 				</Button>
@@ -326,12 +365,12 @@ function Select() {
 						</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<div> 
-						{outPutColonySurvival} <br />
-						{outPutColonyGovernment} <br />
-						{outPutColonyScience} <br />
-						{outPutColonyWealth} <br />
-						{outPutColonyPopulation} <br />
+						<div>
+							{outPutColonySurvival} <br />
+							{outPutColonyGovernment} <br />
+							{outPutColonyScience} <br />
+							{outPutColonyWealth} <br />
+							{outPutColonyPopulation} <br />
 						</div>
 					</Modal.Body>
 					<Modal.Footer>
