@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-export default function CrewMembers() {
+export default function CrewMembers({
+	selectedPeople,
+	onChangeSelectedPerson,
+}) {
 	const [data, getData] = useState([]);
+<<<<<<< HEAD
 	const [selectedPeople, setSelectedPeople] = useState([]);
 	const [selectedCrew, setSelectedCrew] = useState([]);
 	const [selectedLeadership, setSelectedLeadership] = useState(0);
 	const [crewMemberIndex, setCrewMemberIndex] = useState();
+=======
+>>>>>>> c2835446cc3af796f578ae4b25342348a3b68ace
 
 	const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -30,6 +36,7 @@ export default function CrewMembers() {
 		);
 	}, []);
 
+<<<<<<< HEAD
 	const onChangeSelectedPerson = (
 		id,
 		Name,
@@ -98,6 +105,8 @@ export default function CrewMembers() {
 	console.log("crewmemberindex" + crewMemberIndex)
 	
 
+=======
+>>>>>>> c2835446cc3af796f578ae4b25342348a3b68ace
 	return (
 		<div className="container mt-5">
 			<div className="posts  scrollbar scrollbar-success  ">
@@ -184,18 +193,3 @@ export default function CrewMembers() {
 		</div>
 	);
 }
-
-/*
-(event) => {
-                    let checked = event.target.checked;
-                    getData(
-                      data.map((data) => {
-                        if (post.id === data.id) {
-                          data.select = checked;
-                          console.log(data.select);
-                        }
-                        return data;
-                      })
-                    );
-                  }
-*/
