@@ -59,16 +59,17 @@ function Planets() {
                     <Carousel interval={null}
                     >
                         {planets.map( (planet, index) => (
-                            <Carousel.Item key={index}>
+                            <Carousel.Item key={index}
+                                onClick={ () => {
+                                    setSelectedPlanet(planet) 
+                                    setShow(true);
+                                }}
+                            >
                                 <Row  style = {{cursor: 'pointer'}} >
                                     <img
                                     className="testimonialImages d-block w-100"
                                     src={name[planet.Planet]}
                                     alt='Bairkan'
-                                    onClick={ () => {
-                                        setSelectedPlanet(planet) 
-                                        setShow(true);
-                                    }}
                                     />
                                 </Row>
                                 <Row className = "m-5  justify-content-md-center planetInfo">

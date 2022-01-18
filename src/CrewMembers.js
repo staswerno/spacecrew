@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 export default function CrewMembers({
-	selectedPeople,
+	selectedCrew,
 	onChangeSelectedPerson,
 }) {
 	const [data, getData] = useState([]);
-<<<<<<< HEAD
-	const [selectedPeople, setSelectedPeople] = useState([]);
-	const [selectedCrew, setSelectedCrew] = useState([]);
-	const [selectedLeadership, setSelectedLeadership] = useState(0);
-	const [crewMemberIndex, setCrewMemberIndex] = useState();
-=======
->>>>>>> c2835446cc3af796f578ae4b25342348a3b68ace
 
 	const API = "https://space-crew.herokuapp.com/crewmembers";
 
@@ -36,77 +29,6 @@ export default function CrewMembers({
 		);
 	}, []);
 
-<<<<<<< HEAD
-	const onChangeSelectedPerson = (
-		id,
-		Name,
-		Origin,
-		Leadership,
-		Mining,
-		Farming,
-		Building,
-		Combat,
-		Science,
-		Fertility
-	) => {
-		
-		const isSelected =
-			selectedPeople.indexOf(
-				id,
-				Name,
-				Origin,
-				Leadership,
-				Mining,
-				Farming,
-				Building,
-				Combat,
-				Science,
-				Fertility
-			) > -1;			
-
-		const newSelectedPeople = isSelected
-			? selectedPeople.filter((person) => person != id)
-			: [
-					...selectedPeople,
-					id,
-					Name,
-					Origin,
-					Leadership,
-					Mining,
-					Farming,
-					Building,
-					Combat,
-					Science,
-					Fertility
-			  ];
-
-		setSelectedPeople(newSelectedPeople);
-		
-		
-
-		if (selectedCrew.includes(id)) { 
-			
-			setCrewMemberIndex(selectedCrew.indexOf(id)); //Takes an old index for some reason
-			
-			console.log("crewmemberindex" + crewMemberIndex)
-			selectedCrew.splice(crewMemberIndex, 1)
-			setSelectedLeadership(selectedLeadership - Leadership);
-			} else {
-			setSelectedCrew([...selectedCrew, id])
-			setSelectedLeadership(selectedLeadership + Leadership);
-
-		}
-		console.log("the id " + id);
-	};
-
-	//console.log(selectedPeople);
-	console.log("Leadership:" + selectedLeadership);
-	console.log("Selected Crew:" + selectedCrew)
-	console.log("crewmemberindex" + crewMemberIndex)
-	
-
-=======
->>>>>>> c2835446cc3af796f578ae4b25342348a3b68ace
 	return (
 		<div className="container mt-5">
 			<div className="posts  scrollbar scrollbar-success  ">
@@ -155,20 +77,7 @@ export default function CrewMembers({
 									style={{ backgroundColor: "green" }}
 									type="checkbox"
 									className="checkMark bg-success"
-									checked={
-										selectedPeople.indexOf(
-											post._id,
-											post.Name,
-											post.Origin,
-											post.Leadership,
-											post.Mining,
-											post.Farming,
-											post.Building,
-											post.Combat,
-											post.Science,
-											post.Fertility
-										) > -1
-									}
+									checked={selectedCrew.indexOf(post._id) > -1}
 									onChange={() =>
 										onChangeSelectedPerson(
 											post._id,
