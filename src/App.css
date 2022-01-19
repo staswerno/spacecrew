@@ -178,3 +178,16 @@ p {
 .crew-name {
 	margin: auto;
 }
+
+
+/* Show Colony stats above start mission button */
+.teamStats {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -20px;
+}
+
+.teamStats > * {
+	padding: 0px 10px;
+}

@@ -56,7 +56,7 @@ function Select() {
 	const [colonyMining, setColonyMining] = useState(0);
 	const [colonyBuilding, setColonyBuilding] = useState(0);
 	const [colonyCombat, setColonyCombat] = useState(0);
-	const [colonyScience, setColonyScience] = useState();
+	const [colonyScience, setColonyScience] = useState(0);
 	const [colonyLeadership, setColonyLeadership] = useState(0);
 	const [colonyFertility, setColonyFertility] = useState(0);
 
@@ -67,6 +67,8 @@ function Select() {
 	const [outPutColonyScience, setOutPutColonyScience] = useState();
 	const [outPutColonyWealth, setOutPutColonyWealth] = useState();
 	const [outPutColonyPopulation, setOutPutColonyPopulation] = useState();
+
+	const [colonySize, setColonysize] = useState(0);
 
 	//fetching planets data from api
 	useEffect(() => {
@@ -104,6 +106,7 @@ function Select() {
 			setColonyScience(colonyScience - Science);
 			setColonyLeadership(colonyLeadership - Leadership);
 			setColonyFertility(colonyFertility - Fertility);
+			setColonysize(colonySize - 1);
 			determineColonySurvival();
 			determineColonyWealth();
 			determineColonyGovernment();
@@ -118,11 +121,13 @@ function Select() {
 			setColonyScience(colonyScience + Science);
 			setColonyLeadership(colonyLeadership + Leadership);
 			setColonyFertility(colonyFertility + Fertility);
+			setColonysize(colonySize + 1);
 			determineColonySurvival();
 			determineColonyWealth();
 			determineColonyGovernment();
 			determineColonyScience();
 			determineColonyPopulation();
+			
 		}
 	};
 
@@ -151,16 +156,16 @@ function Select() {
 	const determineColonyWealth = () => {
 		if (hasColonySurvived === false) {
 			setOutPutColonyWealth(null);
-		} else if (colonyMining + planetResources / 2 < 50) {
+		} else if (colonyMining + planetResources/2 < 55) {
 			setOutPutColonyWealth(
 				"The people in the colony are very poor, but they get by."
 			);
 			console.log("Wealth outcome: " + colonyMining + planetResources);
-		} else if (colonyMining + planetResources / 2 < 85) {
+		} else if (colonyMining + planetResources/2 < 75) {
 			setOutPutColonyWealth(
 				"The people in the colony developed an economy, but it isn't very strong."
 			);
-		} else if (colonyMining + planetResources / 2 < 100) {
+		} else if (colonyMining + planetResources/2 < 90) {
 			setOutPutColonyWealth(
 				"The people in the colony are wealthy and have a strong economy."
 			);
@@ -175,15 +180,15 @@ function Select() {
 	const determineColonyGovernment = () => {
 		if (hasColonySurvived === false) {
 			setOutPutColonyGovernment(null);
-		} else if (colonyLeadership + colonyFertility / 2 < 50) {
+		} else if (colonyLeadership + colonyFertility / 2 < 55) {
 			setOutPutColonyGovernment(
 				"The society broke apart and the people live in anarchy."
 			);
-		} else if (colonyLeadership + colonyFertility / 2 < 85) {
+		} else if (colonyLeadership + colonyFertility / 2 < 75) {
 			setOutPutColonyGovernment(
 				"A tyrann has gained power and dominates the colony."
 			);
-		} else if (colonyLeadership + colonyFertility / 2 < 100) {
+		} else if (colonyLeadership + colonyFertility / 2 < 90) {
 			setOutPutColonyGovernment(
 				"The colony has developed a functioning democracy."
 			);
@@ -197,15 +202,15 @@ function Select() {
 	const determineColonyScience = () => {
 		if (hasColonySurvived === false) {
 			setOutPutColonyScience(null);
-		} else if (colonyScience + colonyLeadership / 2 < 50) {
+		} else if (colonyScience + colonyLeadership / 2 < 55) {
 			setOutPutColonyScience(
 				"The colony has scientifically fallen back to the middle ages."
 			);
-		} else if (colonyScience + colonyLeadership / 2 < 85) {
+		} else if (colonyScience + colonyLeadership / 2 < 75) {
 			setOutPutColonyScience(
 				"No wisdom past the industrialization survived the first few generations."
 			);
-		} else if (colonyScience + colonyLeadership / 2 < 100) {
+		} else if (colonyScience + colonyLeadership / 2 < 90) {
 			setOutPutColonyScience(
 				"While building up the colony some researchers came up with new brilliant technologies."
 			);
@@ -219,15 +224,15 @@ function Select() {
 	const determineColonyPopulation = () => {
 		if (hasColonySurvived === false) {
 			setOutPutColonyPopulation(null);
-		} else if (colonyFertility + colonyFarming / 2 < 50) {
+		} else if (colonyFertility + colonyFarming / 2 < 55) {
 			setOutPutColonyPopulation(
 				"Due to a rare number of children the colonies size has strongly decreased over time. Only few colonists are left."
 			);
-		} else if (colonyFertility + colonyFarming / 2 < 85) {
+		} else if (colonyFertility + colonyFarming / 2 < 75) {
 			setOutPutColonyPopulation(
 				"The population has barely increased since the start of the colonization."
 			);
-		} else if (colonyFertility + colonyFarming / 2 < 100) {
+		} else if (colonyFertility + colonyFarming / 2 < 90) {
 			setOutPutColonyPopulation(
 				"The population of the colony increased greatly, just as it was planned."
 			);
@@ -260,7 +265,7 @@ function Select() {
 		setPlanetPlantLife(planet.Vegetation);
 		setPlanetClimate(planet.ClimateHostility);
 		setPlanetAlienLife(planet.AlienLife);
-		setPlanetResources(planet.Resource);
+		setPlanetResources(planet.Resources);
 	};
 
 	console.log(selectedPlanet, " from select.js");
@@ -346,8 +351,18 @@ function Select() {
 						/>{" "}
 					</div>
 				</Col>
-			</Row>
-			 Team stats<br /> 
+			</Row >
+				<h3>Colony skills</h3><br />
+				<div className="teamStats">
+				<div>Leadership: {colonyLeadership}</div> 
+				<div>Mining: {colonyMining}</div>
+				<div>Farming: {colonyFarming}  </div>
+				<div>Building: {colonyBuilding} </div>
+				<div>Combat: {colonyCombat} </div>
+				<div>Science: {colonyScience} </div>
+				<div>Fertility: {colonyFertility} </div>
+				<div>Colony size: {colonySize} </div>
+				</div>
 			<Row>
 			</Row>
 			<br /> 
@@ -358,7 +373,7 @@ function Select() {
 					className="startBtn "
 					onClick={missionStatusCheck}
 				>
-					View Mission Status!
+					Start Mission!
 				</Button>
 
 				<Modal show={show} onHide={handleClose} centered>
