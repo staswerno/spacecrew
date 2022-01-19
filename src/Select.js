@@ -108,10 +108,7 @@ function Select() {
 			setColonyFertility(colonyFertility - Fertility);
 			setColonysize(colonySize - 1);
 			determineColonySurvival();
-			determineColonyWealth();
-			determineColonyGovernment();
-			determineColonyScience();
-			determineColonyPopulation();
+			
 			//Put stuff on one object
 		} else {
 			setColonyFarming(colonyFarming + Farming);
@@ -123,10 +120,7 @@ function Select() {
 			setColonyFertility(colonyFertility + Fertility);
 			setColonysize(colonySize + 1);
 			determineColonySurvival();
-			determineColonyWealth();
-			determineColonyGovernment();
-			determineColonyScience();
-			determineColonyPopulation();
+			
 			
 		}
 	};
@@ -266,6 +260,8 @@ function Select() {
 		setPlanetClimate(planet.ClimateHostility);
 		setPlanetAlienLife(planet.AlienLife);
 		setPlanetResources(planet.Resources);
+		
+
 	};
 
 	console.log(selectedPlanet, " from select.js");
@@ -285,6 +281,11 @@ function Select() {
 		} else if (!selectedPlanet._id) {
 			alert("Please select a planet to colonize.");
 		} else {
+			determineColonyWealth();
+			
+			determineColonyGovernment();
+			determineColonyScience();
+			determineColonyPopulation();
 			handleShow();
 		}
 	};

@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
+import Rules from "./Rules";
 
 function Mission() {
 	return (
@@ -20,17 +21,21 @@ function Mission() {
 					skillful crew and save it from extinction.
 					<br />
 					<br />
-					<br />
 					Good Luck! <br />
 				</Col>
 			</Row>
-
+			<Row>
+				<Rules />
+			</Row>
+			<Row>
+				<br />
+			</Row>
 			<Row>
 				<NavLink to="/select">
 					<Button variant="light" type="button" className="startBtn ">
-						Start Mission!
+						Prepare Mission!
 					</Button>
-				</NavLink>
+				</NavLink>	
 			</Row>
 		</Container>
 	);
