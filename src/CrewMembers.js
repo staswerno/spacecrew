@@ -32,42 +32,52 @@ export default function CrewMembers({ selectedCrew, onChangeSelectedPerson }) {
 				{data.map((post, index) => (
 					<div
 						key={index}
-						className="decoration force-overflow overflow-auto m-3 p-2"
+						className="decoration force-overflow overflow-auto m-2	 p-0"
 					>
 						<div className="d-flex text-center flex-row flex-wrap justify-content-between">
 							<div className="crew-name">
 								<h4 className="p-3 fw-bold ">{post.Name} </h4>
-								<p className="p-1">
-									Origin <br /> {post.Origin}{" "}
+								<p className="p-1 font-weight-bold">
+									Origin
+									<br />
+									<div className="font-weight-normal"> {post.Origin}</div>
 								</p>
 							</div>
 
 							<div>
-								<p className="p-1">
-									Leadership <br /> {post.Leadership}{" "}
+								<p className="p-1 font-weight-bold">
+									Leadership <br />
+									<div className="font-weight-normal">{post.Leadership}</div>
 								</p>
-								<p className="p-1">
-									Mining <br /> {post.Mining}{" "}
-								</p>
-							</div>
-							<div>
-								<p className="p-1">
-									Farming <br /> {post.Farming}{" "}
-								</p>
-								<p className="p-1">
-									Building <br /> {post.Building}{" "}
+								<p className="p-1 font-weight-bold">
+									Mining
+									<br /> <div className="font-weight-normal">{post.Mining}</div>
 								</p>
 							</div>
 							<div>
-								<p className="p-1">
-									Combat <br /> {post.Combat}{" "}
+								<p className="p-1 font-weight-bold">
+									Farming <br />{" "}
+									<div className="font-weight-normal">{post.Farming}</div>
 								</p>
-								<p className="p-1">
-									Science <br /> {post.Science}{" "}
+								<p className="p-1 font-weight-bold">
+									Building
+									<br />{" "}
+									<div className="font-weight-normal">{post.Building}</div>
 								</p>
 							</div>
-							<p className="p-1 mr-2">
-								Fertility <br /> {post.Fertility}{" "}
+							<div>
+								<p className="p-1 font-weight-bold">
+									Combat
+									<br /> <div className="font-weight-normal">{post.Combat}</div>
+								</p>
+								<p className="p-1 font-weight-bold">
+									Science <br />{" "}
+									<div className="font-weight-normal">{post.Science}</div>
+								</p>
+							</div>
+							<p className="p-1 mr-2 font-weight-bold">
+								Fertility <br />{" "}
+								<div className="font-weight-normal">{post.Fertility}</div>
 							</p>
 							<p>
 								{" "}

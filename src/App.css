@@ -97,6 +97,7 @@
 
 .force-overflow {
 	background: green;
+	border-radius: 15px;
 }
 
 .force-overflow div,
@@ -107,6 +108,7 @@ p {
 }
 .force-overflow div {
 	background: green;
+
 	color: black;
 }
 .form-check-input {
@@ -125,8 +127,8 @@ p {
 .scrollbar {
 	position: relative;
 	overflow-y: scroll;
-	height: 700px;
-	width: 850px;
+	height: 687px;
+	width: 770px;
 	cursor: pointer;
 }
 ::-webkit-scrollbar {
@@ -178,7 +180,6 @@ p {
 .crew-name {
 	margin: auto;
 }
-
 
 /* Show Colony stats above start mission button */
 .teamStats {

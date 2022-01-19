@@ -108,7 +108,7 @@ function Select() {
 			setColonyFertility(colonyFertility - Fertility);
 			setColonysize(colonySize - 1);
 			determineColonySurvival();
-			
+
 			//Put stuff on one object
 		} else {
 			setColonyFarming(colonyFarming + Farming);
@@ -120,8 +120,6 @@ function Select() {
 			setColonyFertility(colonyFertility + Fertility);
 			setColonysize(colonySize + 1);
 			determineColonySurvival();
-			
-			
 		}
 	};
 
@@ -150,16 +148,16 @@ function Select() {
 	const determineColonyWealth = () => {
 		if (hasColonySurvived === false) {
 			setOutPutColonyWealth(null);
-		} else if (colonyMining + planetResources/2 < 55) {
+		} else if (colonyMining + planetResources / 2 < 55) {
 			setOutPutColonyWealth(
 				"The people in the colony are very poor, but they get by."
 			);
 			console.log("Wealth outcome: " + colonyMining + planetResources);
-		} else if (colonyMining + planetResources/2 < 75) {
+		} else if (colonyMining + planetResources / 2 < 75) {
 			setOutPutColonyWealth(
 				"The people in the colony developed an economy, but it isn't very strong."
 			);
-		} else if (colonyMining + planetResources/2 < 90) {
+		} else if (colonyMining + planetResources / 2 < 90) {
 			setOutPutColonyWealth(
 				"The people in the colony are wealthy and have a strong economy."
 			);
@@ -260,8 +258,6 @@ function Select() {
 		setPlanetClimate(planet.ClimateHostility);
 		setPlanetAlienLife(planet.AlienLife);
 		setPlanetResources(planet.Resources);
-		
-
 	};
 
 	console.log(selectedPlanet, " from select.js");
@@ -282,7 +278,7 @@ function Select() {
 			alert("Please select a planet to colonize.");
 		} else {
 			determineColonyWealth();
-			
+
 			determineColonyGovernment();
 			determineColonyScience();
 			determineColonyPopulation();
@@ -293,10 +289,10 @@ function Select() {
 	return (
 		<Container className="selectContainer">
 			<Row className="m-3 ">
-				<h3>Select 10 Crew members and a Planet to colonize</h3>
+				<h3>Select 10 Crew Members and a Planet to colonize</h3>
 			</Row>
 			<Row>
-				<Col>
+				<Col xs={4}>
 					<div>
 						{" "}
 						<div
@@ -307,7 +303,7 @@ function Select() {
 						</div>
 						<div className="planetsCaro mt-3">
 							{isLoading ? (
-								<div>is loading...</div>
+								<div>loading...</div>
 							) : (
 								<Carousel interval={null}>
 									{planets.map((planet, index) => (
@@ -344,7 +340,7 @@ function Select() {
 						</div>{" "}
 					</div>
 				</Col>
-				<Col>
+				<Col xs={8}>
 					<div>
 						<CrewMembers
 							selectedCrew={selectedCrew}
@@ -352,31 +348,32 @@ function Select() {
 						/>{" "}
 					</div>
 				</Col>
-			</Row >
-				<h3>Colony overview</h3><br />
-				<div className="teamStats">
-				<div>Leadership: {colonyLeadership}</div> 
+			</Row>
+			<h3>Colony Overview</h3>
+			<br />
+			<div className="teamStats">
+				<div>Leadership: {colonyLeadership}</div>
 				<div>Mining: {colonyMining}</div>
-				<div>Farming: {colonyFarming}  </div>
+				<div>Farming: {colonyFarming} </div>
 				<div>Building: {colonyBuilding} </div>
 				<div>Combat: {colonyCombat} </div>
 				<div>Science: {colonyScience} </div>
 				<div>Fertility: {colonyFertility} </div>
-				<div>Colony size: {colonySize} </div>
+				<div>Colony Size: {colonySize} </div>
+			</div>
+			<Row></Row>
+			<br />
+			<Row>
+				<div className="mb-5" width="100%">
+					<Button
+						variant="light"
+						type="button"
+						className="startBtn "
+						onClick={missionStatusCheck}
+					>
+						Launch Colony!
+					</Button>
 				</div>
-			<Row>
-			</Row>
-			<br /> 
-			<Row>
-				<Button
-					variant="light"
-					type="button"
-					className="startBtn "
-					onClick={missionStatusCheck}
-				>
-					Launch Colony!
-				</Button>
-
 				<Modal show={show} onHide={handleClose} centered>
 					<Modal.Header closeButton>
 						<Modal.Title>
