@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function CrewMembers({
-	selectedCrew,
-	onChangeSelectedPerson,
-}) {
+export default function CrewMembers({ selectedCrew, onChangeSelectedPerson }) {
 	const [data, getData] = useState([]);
 
 	const API = "https://space-crew.herokuapp.com/crewmembers";
@@ -35,15 +32,16 @@ export default function CrewMembers({
 				{data.map((post, index) => (
 					<div
 						key={index}
-						className="decoration force-overflow overflow-auto m-3 "
+						className="decoration force-overflow overflow-auto m-3 p-2"
 					>
 						<div className="d-flex text-center flex-row flex-wrap justify-content-between">
-							<div>
+							<div className="crew-name">
 								<h4 className="p-3 fw-bold ">{post.Name} </h4>
 								<p className="p-1">
 									Origin <br /> {post.Origin}{" "}
 								</p>
 							</div>
+
 							<div>
 								<p className="p-1">
 									Leadership <br /> {post.Leadership}{" "}
@@ -68,7 +66,7 @@ export default function CrewMembers({
 									Science <br /> {post.Science}{" "}
 								</p>
 							</div>
-							<p className="p-1">
+							<p className="p-1 mr-2">
 								Fertility <br /> {post.Fertility}{" "}
 							</p>
 							<p>
