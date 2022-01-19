@@ -308,7 +308,10 @@ function Select() {
 					</div>
 				</Col>
 			</Row>
-			<br />
+			 Team stats<br /> 
+			<Row>
+			</Row>
+			<br /> 
 			<Row>
 				<Button
 					variant="light"
