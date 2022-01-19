@@ -374,7 +374,7 @@ function Select() {
 					className="startBtn "
 					onClick={missionStatusCheck}
 				>
-					Start Mission!
+					Launch Colony!
 				</Button>
 
 				<Modal show={show} onHide={handleClose} centered>

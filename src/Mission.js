@@ -33,7 +33,7 @@ function Mission() {
 			<Row>
 				<NavLink to="/select">
 					<Button variant="light" type="button" className="startBtn ">
-						Prepare Mission!
+						Start Mission!
 					</Button>
 				</NavLink>	
 			</Row>
