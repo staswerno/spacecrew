@@ -352,7 +352,7 @@ function Select() {
 					</div>
 				</Col>
 			</Row >
-				<h3>Colony skills</h3><br />
+				<h3>Colony overview</h3><br />
 				<div className="teamStats">
 				<div>Leadership: {colonyLeadership}</div> 
 				<div>Mining: {colonyMining}</div>
