@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/spacecrew/static/css/main.211e0d92.css",
+    "main.js": "/spacecrew/static/js/main.2e097052.js",
+    "static/media/Lagus.png": "/spacecrew/static/media/Lagus.53a3b0322340724f364a.png",
+    "static/media/Kusma.png": "/spacecrew/static/media/Kusma.22da10619d6d510f5670.png",
+    "static/media/Raida.png": "/spacecrew/static/media/Raida.b87a35b5bdbf3cfc8412.png",
+    "static/media/Faihu.png": "/spacecrew/static/media/Faihu.a44e7aa4725c7905fd11.png",
+    "static/media/Urus.png": "/spacecrew/static/media/Urus.b00521bf85d31d4627bc.png",
+    "static/media/Scloop.png": "/spacecrew/static/media/Scloop.78300de641406dca1d84.png",
+    "static/media/Manna.png": "/spacecrew/static/media/Manna.bbd4b71c5383ba176beb.png",
+    "static/media/Horst.png": "/spacecrew/static/media/Horst.933f5ddae6280c1ff8f0.png",
+    "static/media/Jer.png": "/spacecrew/static/media/Jer.db020007d9b95977513f.png",
+    "static/media/Bairkan.png": "/spacecrew/static/media/Bairkan.c08bd27f60c793dbc08e.png",
+    "index.html": "/spacecrew/index.html",
+    "main.211e0d92.css.map": "/spacecrew/static/css/main.211e0d92.css.map",
+    "main.2e097052.js.map": "/spacecrew/static/js/main.2e097052.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.211e0d92.css",
+    "static/js/main.2e097052.js"
+  ]
+}
